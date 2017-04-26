@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Asynchronous JS</title>
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme.css">
+	<link rel="stylesheet" href="css/font-awesome.css">
+	<link rel="icon" href="favicon.ico" />
+	<link rel="stylesheet" href="css/print/pdf.css" media="print">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section data-background="#ed1c40" id="jsMeetupSplash">
+				<h1 style="color: #ffffff">
+					<span class="fa fa-fw fa-2x fa-meetup"></span>
+					<div style="text-transform: none; margin-top:1em; font-size: .5em;">JavaScript North West Meetup</div>
+				</h1>
+			</section>
+			<section id="title">
+				<h2>The Rise &amp; Fall of jQuery</h2>
+				<div>
+					<div style="margin:1em 0;">
+						<img src="img/kxh_sq.jpg" border="0" style="border: none; border-radius: 50%; width: 2em; height: 2em; vertical-align: middle; margin: 0 .5em 0 0;">
+						<a href="mailto:keith.henry@evolutionjobs.co.uk">keith.henry@evolutionjobs.co.uk</a>
+					</div>
+
+					<div style="margin:1em 0;">
+						<div style="width: 32%; display: inline-block;">
+							<span class="fa fa-fw fa-lg fa-twitter"></span> <a href="https://twitter.com/KHenry" target="_blank">@khenry</a>
+						</div>
+						<div style="width: 32%; display: inline-block;">
+							<span class="fa fa-fw fa-lg fa-github"></span> <a href="https://github.com/KeithHenry" target="_blank">KeithHenry</a>
+						</div>
+						<div style="width: 32%; display: inline-block;">
+							<span class="fa fa-fw fa-lg fa-stack-overflow"></span>
+							<a href="http://stackexchange.com/users/689" target="_blank">
+								<img src="http://stackexchange.com/users/flair/689.png" width="208" height="58" alt="profile for Keith on Stack Exchange, a network of free, community-driven Q&amp;A sites"
+									title="profile for Keith on Stack Exchange, a network of free, community-driven Q&amp;A sites" style="border: 0; padding: 0; margin: 0; vertical-align: middle;">
+							</a>
+						</div>
+					</div>
+
+					<div style="margin:1em 0;" class="fragment">
+						<span class="fa fa-fw fa-television"></span> 
+						<a href="https://keithhenry.github.io/jsmeetup-jquery-rise-fall">https://keithhenry.github.io/jsmeetup-jquery-rise-fall</a>
+					</div>
+				</div>
+			</section>
+		
+
+			<section id="questions" data-background="#9C27B0">
+				<h1>Questions?</h1>
+				<div>
+					<div style="margin:1em 0;">
+						<img src="img/kxh_sq.jpg" border="0" style="border: none; border-radius: 50%; width: 2em; height: 2em; vertical-align: middle; margin: 0 .5em 0 0;">
+						<a href="mailto:keith.henry@evolutionjobs.co.uk">keith.henry@evolutionjobs.co.uk</a>
+					</div>
+
+					<div style="margin:1em 0;">
+						<div style="width: 32%; display: inline-block;">
+							<span class="fa fa-fw fa-twitter"></span> <a href="https://twitter.com/KHenry" target="_blank">@khenry</a>
+						</div>
+						<div style="width: 32%; display: inline-block;">
+							<span class="fa fa-fw fa-github"></span> <a href="https://github.com/KeithHenry" target="_blank">KeithHenry</a>
+						</div>
+						<div style="width: 32%; display: inline-block;">
+							<span class="fa fa-fw fa-stack-overflow"></span>
+							<a href="http://stackexchange.com/users/689" target="_blank">
+								<img src="http://stackexchange.com/users/flair/689.png" width="208" height="58" alt="profile for Keith on Stack Exchange, a network of free, community-driven Q&amp;A sites"
+									title="profile for Keith on Stack Exchange, a network of free, community-driven Q&amp;A sites" style="border: 0; padding: 0; margin: 0; vertical-align: middle;">
+							</a>
+						</div>
+					</div>
+					<div style="margin:1em 0;">
+						<span class="fa fa-fw fa-television"></span> 
+						<a href="https://keithhenry.github.io/jsmeetup-jquery-rise-fall">https://keithhenry.github.io/jsmeetup-jquery-rise-fall</a>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+	<script type="text/javascript" src="plugin/highlight/highlight.js"></script>
+	<script type="text/javascript" src="reveal.js"></script>
+	<script>
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+			transition: 'slide'
+		});
+
+		hljs.configure({
+			tabReplace: '    ' // 4 spaces
+		});
+
+		hljs.initHighlightingOnLoad();
+
+		var codes = document.querySelectorAll('code.inline:not(.hljs):not(.nohighlight)');
+		for(var i in codes) {
+			hljs.highlightBlock(codes[i]);
+		}
+			
+	</script>
+</body>
+
+</html>
