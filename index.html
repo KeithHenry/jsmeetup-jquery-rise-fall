@@ -69,7 +69,8 @@
 					<p class="fragment"><span class="fa fa-fw fa-lg fa-internet-explorer"></span>IE6 was king, with something like 60% market share.</p>
 					<p class="fragment">Older versions of IE were common, something like 25% of all visitors.</p>
 					<p class="fragment"><span class="fa fa-fw fa-lg fa-firefox"></span>Firefox had 9-10%.</p>
-					<p class="fragment">All the other browsers, including <span class="fa fa-fw fa-lg fa-chrome"></span>Chrome and <span class="fa fa-fw fa-lg fa-safari"></span>Safari were the remaining &lt;5%.</p>
+					<p class="fragment">All the other browsers, including <span class="fa fa-fw fa-lg fa-safari"></span>Safari, were the remaining &lt;5%.</p>
+					<p class="fragment"><span class="fa fa-fw fa-lg fa-chrome"></span>Chrome<span class="fa fa-fw fa-lg fa-safari"></span> wouldn't be released until 2008.</p>
 				</section>
 				<section id="compatibility2006" style="text-align: left;">
 					<h3>Browser Compatibility</h3>
@@ -99,8 +100,34 @@
 
 			<section>
 				<section id="rise">
-					<h2>Rise</h2>
+					<h2>Rise of jQuery</h2>
 					<p>In this landscape jQuery made a huge difference.</p>
+				</section>
+				<section id="riseDomManipulation" style="text-align: left;">
+					<h3>DOM Manipulation</h3>
+					<p class="fragment">Get element from DOM: <code class="javascript inline">$('CSS selector')</code></p>
+					<p class="fragment">Create DOM fragment from HTML: <code class="javascript inline">$('&lt;tag&gt;content&lt;/tag&gt;')</code></p>
+					<p class="fragment">The <a href="https://github.com/jquery/sizzle">Sizzle</a> engine made this quick, even on IE.</p>
+				</section>
+				<section id="riseEvents" style="text-align: left;">
+					<h3>Events</h3>
+					<p class="fragment">Subscription: <code class="javascript inline">element.on('click', function() {...})</code></p>
+					<p class="fragment">Cancellation: <code class="javascript inline">element.off('click')</code></p>
+					<p class="fragment">Fire once: <code class="javascript inline">element.one('click', function() {...})</code></p>
+					<p class="fragment">Event tidy up - avoid memory leaks.</p>
+				</section>
+				<section id="riseHttpRequests" style="text-align: left;">
+					<h3>HTTP Requests</h3>
+					<p class="fragment">
+						<code class="javascript inline">ActiveXObject('Microsoft.XMLHTTP')</code> vs
+						<code class="javascript inline">new ActiveXObject('MSXML2.XMLHTTP')</code> vs
+						<code class="javascript inline">XMLHttpRequest</code></p>
+					<p class="fragment"><code class="javascript inline">$.ajax</code> added a consistent method with type handling.</p>
+				</section>
+				<section id="riseReady" style="text-align: left;">
+					<h3>Ready Event</h3>
+					<p class="fragment"><code class="javascript inline">$(function(){...})</code></p>
+					<p class="fragment"></p>
 				</section>
 			</section>
 
