@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>Asynchronous JS</title>
+	<title>jQuery Rise &amp; Fall</title>
 	<link rel="stylesheet" href="css/reveal.css">
 	<link rel="stylesheet" href="css/theme.css">
 	<link rel="stylesheet" href="css/font-awesome.css">
@@ -82,6 +82,13 @@
 						<li class="fragment">Loads of quirks and proprietary features (like DHTML Behaviors).</li>
 					</ul>
 				</section>
+				<section id="compatibility2006" style="text-align: left;">
+					<h3><span class="fa fa-fw fa-lg fa-internet-explorer"></span>Just how bad was it?</h3>
+					<p class="fragment">For example IE4, 5 &amp; 6 had a bug:</p>
+					<p class="fragment">Elements added to a document fragment would <a href="https://msdn.microsoft.com/en-us/library/bb250448%28v=vs.85%29.aspx?f=255&MSPPError=-2147217396">memory leak</a>.</p>
+					<p class="fragment">All DOM manipulation had to be done top down.</p>
+					<p class="fragment">Get this wrong and IE would use more and more memory until it crashed.</p>
+				</section>
 				<section id="mobile2006" style="text-align: left;">
 					<h3>Mobile</h3>
 					<p class="fragment"><a href="https://en.wikipedia.org/wiki/Wireless_Application_Protocol">WAP</a> phones common.</p>
@@ -127,7 +134,16 @@
 				<section id="riseReady" style="text-align: left;">
 					<h3>Ready Event</h3>
 					<p class="fragment"><code class="javascript inline">$(function(){...})</code></p>
-					<p class="fragment"></p>
+					<p class="fragment">Put your initialisation code in here and it can hook up anything in the page.</p>
+				</section>
+				<section id="riseConsistency" style="text-align: left;">
+					<h3>Consistent</h3>
+					<p class="fragment">Web front end developers could learn jQuery and just get on with developing instead of faffing about with bloody IE awfulness.</p>
+					<p class="fragment">Components and plug-ins could depend on jQuery and be sure of it working in every browser.</p>
+					<p class="fragment">Soon there was an ecosystem of jQuery components.</p>
+				</section>
+				<section id="riseSummary">
+					<h2>jQuery <i>was</i> Awesome</h2>
 				</section>
 			</section>
 
