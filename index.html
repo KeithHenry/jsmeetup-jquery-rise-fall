@@ -403,6 +403,48 @@ var outer =
 				</section>
 			</section>
 
+			<section>
+				<section id="http">
+					<h2>HTTP Requests</h2>
+					<p>jQuery has <code class="javascript inline">$.ajax</code> for consistent HTTP requests, 
+					and helpful shorthand like <code class="javascript inline">$('selector').load('url')</code>.</p>
+				</section>
+				<section id="fetch" style="text-align: left;">
+					<h3><a href="https://developer.mozilla.org/en/docs/Web/API/Fetch_API" target="_blank"><code class="javascript inline">fetch</code> API</a></h3>
+					<p class="fragment">Stream and large response handling.</p>
+					<p class="fragment">Available to workers.</p>
+					<p class="fragment">Native promise support.</p>
+					<p class="fragment">Supported by everyone except IE - it's easier to shim <code class="javascript inline">fetch</code> for IE users than it is to make everyone use a wrapper API.</p>
+				</section>
+			</section>
+
+			<section>
+				<section id="ready">
+					<h2>Ready Event</h2>
+					<p>For most of jQuery's life this has been <i>awesome</i>, 
+					but now it could be the greatest weakness.</p>
+				</section>
+				<section id="readyReplacement" style="text-align: left;">
+					<h3>Ready Replacement</h3>
+					<pre><code class="javascript">// Handle the document ready event
+function $(selector, context) {
+    // If passed a function
+    if(typeof selector === 'function')
+    {
+        if(document.readyState === 'complete')
+            // DOM content already loaded, fire once 
+			// the current script block has finished
+            window.setTimeout(selector);
+        else
+            // Listen for the content loaded event
+            document.addEventListener('DOMContentLoaded', selector, 
+				{ once: true });
+
+        return;
+    } // ...</code></pre>
+				</section>
+			</section>
+
 			<section id="questions" data-background="#9C27B0">
 				<h1>Questions?</h1>
 				<div>
