@@ -454,6 +454,47 @@ function $(selector, context) {
 				</section>
 			</section>
 
+			<section>
+				<section id="mobile">
+					<h2>Mobile</h2>
+					<p>Mobile devices are a whole new battleground.</p>
+				</section>
+				<section id="mobileSlow1" style="text-align: left;">
+					<h3>Mobile is sloooooww</h3>
+					<p class="fragment">Slower connections.</p>
+					<p class="fragment">Higher latency.</p>
+					<p class="fragment">More work means more heat and less battery.</p>
+					<p class="fragment">Phones are slower than you think.</p>
+				</section>
+				<section id="mobileSlow2" style="text-align: left;">
+					<h3>How much slower?</h3>
+					<p class="fragment">The fastest phones on the market are <i>10 times</i> slower than the average desktop, 
+					running flat out and burning through their battery. </p>
+					<p class="fragment">The average phone is <i>far</i> slower.</p>
+					<p class="fragment">200ms parsing and executing jQuery becomes 2 seconds of waiting with an uninteractive page.</p>
+					<p class="fragment">20ms of overhead on a click event becomes 200ms of lag where the user will tap the button again.</p>
+				</section>
+				<section id="mobileGoldenRule" style="text-align: left;color:#000000;" data-background="#FFEA00">
+					<h3 style="color:#000000;">Run as little JS as possible!</h3>
+					<p>No code is faster than code you don't even have to load.</p>
+					<p class="fragment">jQuery's replace-everything strategy is just not a good fit here.</p>
+				</section>
+				<section id="mobileOptimisation" style="text-align: left;">
+					<h3>Other rules for mobile optimisation</h3>
+					<p class="fragment">Execute all scripts asynchronously (jQuery's <a href="#readyProblems">ready event blocks this</a>).</p>
+					<p class="fragment">Don't block rendering waiting for resources to load or JS to run (broken by many jQuery components).</p>
+					<p class="fragment">Only use GPU accelerated animations (no <code class="javascript inline">.slideUp()</code>/<code class="javascript inline">.slideDown()</code>, amoungst many others)</p>
+					<p class="fragment">Only load the script you'll need.</p>
+				</section>
+
+				<section id="jQueryMobile" style="text-align: left;">
+					<h3>jQuery Mobile</h3>
+					<p class="fragment">jQuery does have a <a href="https://jquerymobile.com/" target="_blank">mobile touch-optimised version</a>.</p>
+					<p class="fragment">It's 196KB (un-compressed) on top of jQuery (another 86KB).</p>
+					<p class="fragment">That's all I have to say about that.</p>
+				</section>
+			</section>
+
 			<section id="questions" data-background="#9C27B0">
 				<h1>Questions?</h1>
 				<div>
