@@ -442,6 +442,15 @@ function $(selector, context) {
 
         return;
     } // ...</code></pre>
+					<p class="fragment">It's fairly easy to duplicate jQuery's behaviour (though this is simplified).</p>
+				</section>
+				<section id="readyProblems" style="text-align: left;">
+					<h3>So what's wrong with Ready?</h3>
+					<p class="fragment">No support for <code class="html inline">&lt;script async ...&gt;</code></p>
+					<p class="fragment">No support for <code class="html inline">&lt;script defer ...&gt;</code></p>
+					<p class="fragment">Every jQuery component relies on ready, so...</p>
+					<p class="fragment">Everything waits for all the JS to download before becoming interactive.</p>
+					<p class="fragment">This is fine for corporate apps where people will wait, but is a problem for mobile.</p>
 				</section>
 			</section>
 
