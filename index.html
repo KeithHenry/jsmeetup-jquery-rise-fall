@@ -182,7 +182,7 @@
 					<p class="fragment">New technologies.</p>
 				</section>
 				<section id="cannotChange" style="text-align: left;">
-					<h3>jQuery Cannot</h3>
+					<h3>jQuery Cannot Change</h3>
 					<p class="fragment">Too many components depend on the existing behaviour.</p>
 					<p class="fragment">There's no path from jQuery's replace-everything approach to a more modern shim what's missing style.</p>
 					<p class="fragment">Let's look at what jQuery does, and see what could be done better...</p>
@@ -346,6 +346,20 @@ React.createElement("div", {style: {backgroundColor: "#f00"}}, "content");</code
 					<p class="fragment">DOM as data can be compared and only differences applied.</p>
 					<p class="fragment">This abstraction is called the <i>virtual DOM</i>.</p>
 					<p class="fragment">See also <a href="https://github.com/developit/preact" target="_blank">Preact</a> for more lightweight alternative with fewer features.</p>
+				</section>
+				
+				<section id="domCreationWC" style="text-align: left;" data-background="#009688">
+					<h3>Web Components</h3>
+					<p class="fragment"><a href="https://vuejs.org/" target="_blank">Vue.js</a> uses a similar model, but use the 
+					<a href="https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Slots-Proposal.md" target="_blank">slots API</a>.</p>
+					<p class="fragment">Web Components build DOM with <code class="javascript inline">&lt;template&gt;</code> and Shadow DOM.</p>
+					<p class="fragment">(too much to cover here)</p>
+				</section>
+				
+				<section id="domSummary" style="text-align: left;">
+					<h3>jQuery DOM</h3>
+					<p class="fragment">There are better ways to select and build DOM.</p>
+					<p class="fragment">jQuery includes a lot of DOM manipulation code, but it standardises and wraps rather than abstracts.</p>
 				</section>
 			</section>
 
@@ -593,7 +607,7 @@ Best practice with most projects is now mobile-first.</p>
 					<p><a href="https://jsfiddle.net/KeithHenry/stw0twg3/" target="_blank"><span class="fa fa-fw fa-jsfiddle"></span> JS Fiddle Demo</a>.</p>
 					<p class="fragment">Others have done it better...</p>
 				</section>
-				<section id="simpleReplacement" style="text-align: left;">
+				<section id="dropinReplacement" style="text-align: left;">
 					<h3>jQuery Drop-in Replacements</h3>
 					<p>jQuery is 86KB</p>
 					<p class="fragment"><a href="http://zeptojs.com/" target="_blank">Zepto</a> 26KB.</p>
@@ -610,7 +624,29 @@ Best practice with most projects is now mobile-first.</p>
 				</section>
 			</section>
 
-						
+			<section>
+				<section id="recruitmentIntro">
+					<h2>Recruitment &amp; Skills</h2>
+					<p>There are a lot of JS developers who reach for jQuery for <i>every</i> project.</p>
+					<p class="fragment">That can be both a good and a bad thing.</p>
+				</section>
+				<section id="recruitment" style="text-align: left;">
+					<h3>Team Management</h3>
+					<p>jQuery is ubiqutous, mature, and easy to learn.</p>
+					<p class="fragment">For all of the exciting new frameworks listed above one of the top Stack Overflow questions is...</p>
+					<blockquote class="fragment">How do I use {framework} with jQuery?</blockquote>
+					<p class="fragment">jQuery developers are cheaper and easier to source than, say, React or Angular specialists.</p>
+					<p class="fragment">If you need to build a large team and you're dealing with corporate or internal customers then jQuery is a pragmatic choice.</p>
+				</section>
+				<section id="skills" style="text-align: left;">
+					<h3>Skills</h3>
+					<p>jQuery is generic, old, and easy to learn.</p>
+					<p class="fragment">If you're coding with jQuery try using it less. Plain JS is perfectly compatible.</p>
+					<p class="fragment">jQuery should be just one of a set of JS skills that you have.</p>
+					<p class="fragment">You should be as comfortable coding vanilla JS with no libraries loaded at all as you are with jQuery.</p>
+				</section>
+			</section>		
+
 			<section>
 				<section>
 					<h2>Conclusion</h2>
