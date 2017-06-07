@@ -307,7 +307,10 @@ function createElement(tag, content, children) {
 	for (var i = 0; i < children.length; i++)
 		ele.appendChild(children[i]);
 }</code></pre>
-					<p class="fragment">See <a href="https://jsfiddle.net/KeithHenry/7snzkugx/" target="_blank">this JS Fiddle</a> for this with support for strings and style properties too.</p>
+					<p class="fragment">See 
+						<a href="https://github.com/KeithHenry/jsmeetup-jquery-rise-fall/blob/master/samples/dom-builder.js" target="_blank"><span class="fa fa-fw fa-github"></span></a> 
+						<a href="https://jsfiddle.net/KeithHenry/7snzkugx/" target="_blank"><span class="fa fa-fw fa-jsfiddle"></span></a> 
+						for this with support for strings and style properties too.</p>
 				</section>
 				<section id="domCreationBetterSample" style="text-align: left;" data-background="#009688">
 					<h3>Better DOM Example</h3>
@@ -539,6 +542,9 @@ function $(selector, context) {
 					<p class="fragment">It's 196KB (un-compressed) on top of jQuery (another 86KB).</p>
 					<p class="fragment">That's all I have to say about that.</p>
 				</section>
+				<section id="mobileSummary">
+					<p>While jQuery has always claimed to be <i>lightweight</i>, in the mobile context it really <i>really</i> isn't.</p>
+				</section>
 			</section>
 
 			<section>
@@ -547,7 +553,7 @@ function $(selector, context) {
 					<p>The biggest issue with jQuery is that it's so well optimised for a previous paradigm.</p>
 				</section>
 				<section id="paradigmOverTime" style="text-align: left;">
-					<p class="fragment">2005: server builds HTML with inlined JS events.<br>
+					<p>2005: server builds HTML with inlined JS events.<br>
 Mobile was an afterthought.</p>
 					<p class="fragment">2010: static HTML with events subscribed to in separate client side code.<br>
 jQuery is well suited for this pattern.<br>
@@ -573,6 +579,34 @@ Best practice with most projects is now mobile-first.</p>
 					<p class="fragment">Resources and shims will be small files loaded in parallel over HTTP/2.</p>
 					<p class="fragment">Preload and HTTP/2 push will send down resources before they are requested.</p>
 					<p class="fragment">Service workers will cache resources and provide offline functionality.</p>
+				</section>
+			</section>
+
+			<section>
+				<section id="replacement">
+					<h2>Replacing jQuery</h2>
+					<p>There are alternatives</p>
+				</section>
+				<section id="simpleReplacement" style="text-align: left;">
+					<h3>Our simple jQuery</h3>
+					<p><a href="https://github.com/KeithHenry/jsmeetup-jquery-rise-fall/blob/master/samples/noddy-jquery.js" target="_blank"><span class="fa fa-fw fa-github"></span> Source</a>.</p>
+					<p><a href="https://jsfiddle.net/KeithHenry/stw0twg3/" target="_blank"><span class="fa fa-fw fa-jsfiddle"></span> JS Fiddle Demo</a>.</p>
+					<p class="fragment">Others have done it better...</p>
+				</section>
+				<section id="simpleReplacement" style="text-align: left;">
+					<h3>jQuery Drop-in Replacements</h3>
+					<p>jQuery is 86KB</p>
+					<p class="fragment"><a href="http://zeptojs.com/" target="_blank">Zepto</a> 26KB.</p>
+					<p class="fragment"><a href="https://github.com/kiltjs/jqlite" target="_blank">jqlite</a> 20KB, used by Angular 1</p>
+					<p class="fragment">(Angular 2/4 has dropped it)</p>
+				</section>
+				<section id="alternatives" style="text-align: left;">
+					<h3>Alternatives</h3>
+					<p>There's lots of help online to wean off jQuery...</p>
+					<p class="fragment"><a href="http://youmightnotneedjquery.com/" target="_blank">You Might Not Need jQuery</a></p>
+					<p class="fragment"><a href="https://blog.garstasio.com/you-dont-need-jquery/" target="_blank">You Don't Need jQuery!</a></p>
+					<p class="fragment"><a href="https://www.sitepoint.com/do-you-really-need-jquery/" target="_blank">Do You Really Need jQuery?</a></p>
+					<p class="fragment">Loads more!</p>
 				</section>
 			</section>
 
