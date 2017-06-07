@@ -104,10 +104,23 @@
 				</section>
 				<section id="server2006" style="text-align: left;">
 					<h3>Server</h3>
-					<p class="fragment">Servers were mostly Java, .NET WebForms, PHP, or even CGI C/Perl scripts.</p>
+					<p class="fragment">Servers were mostly Java, ASP 'Classic', .NET WebForms, PHP, or even CGI C/Perl scripts.</p>
 					<p class="fragment">HTML content built server side.</p>
 					<p class="fragment">JS typically added inline.</p>
 					<p class="fragment">REST was about, but SOAP was far more common.</p>
+				</section>
+				<section id="sample2006" style="text-align: left;">
+					<h3>Typical Page in 2006</h3>
+<pre><code class="asp"><%-- Typical asp/aspx page --%>
+<div>
+	<%=content%>
+	<div click="javascript:alert(<%=message%>)" 
+		 style="cursor:pointer; border: 1px solid black;">
+		 Click Me!
+	</div>
+</div></code></pre>
+					<p class="fragment">Using <code class="javascript inline">&lt;div&gt;</code> instead of any built-in control was the 
+					standard behaviour (and a pet hate of mine).</p>
 				</section>
 			</section>
 
@@ -139,8 +152,11 @@
 				</section>
 				<section id="riseReady" style="text-align: left;">
 					<h3>Ready Event</h3>
-					<p class="fragment"><code class="javascript inline">$(function(){...})</code></p>
-					<p class="fragment">Put your initialisation code in here and it can hook up anything in the page.</p>
+					<pre class="fragment"><code class="javascript">$(function(){
+    // Put your initialisation code in here 
+	// and it can hook up anything in the page.
+});</code></pre>
+					<p class="fragment">You never had to worry whether an element was loaded into the DOM yet.</p>
 				</section>
 				<section id="riseConsistency" style="text-align: left;">
 					<h3>Consistent</h3>
@@ -165,6 +181,12 @@
 					<p class="fragment">Client side rendering.</p>
 					<p class="fragment">New technologies.</p>
 				</section>
+				<section id="cannotChange" style="text-align: left;">
+					<h3>jQuery Cannot</h3>
+					<p class="fragment">Too many components depend on the existing behaviour.</p>
+					<p class="fragment">There's no path from jQuery's replace-everything approach to a more modern shim what's missing style.</p>
+					<p class="fragment">Let's look at what jQuery does, and see what could be done better...</p>
+				</section>
 			</section>
 
 			<section>
@@ -182,7 +204,9 @@ function $(selector, context) {
 
     // If one element return it instead of the collection
     return result || result.length === 1 ? result[0] : result;
-}</code></pre>
+}
+
+var element = $('selector');</code></pre>
 					<p class="fragment">(works in current browsers, except IE8)</p>
 				</section>
 				<section id="domWrapper" style="text-align: left;">
@@ -218,8 +242,7 @@ function $(selector, context) {
 			outer.children[0] : outer.children;
     }
 
-    // See selector code above...
-}</code></pre>
+    // See selector code above...</code></pre>
 				</section>
 				<section id="domCreationBad" style="text-align: left;">
 					<h3>Why is this bad?</h3>
@@ -284,7 +307,7 @@ function createElement(tag, content, children) {
 	for (var i = 0; i < children.length; i++)
 		ele.appendChild(children[i]);
 }</code></pre>
-					<p class="fragment">See <a href="https://jsfiddle.net/KeithHenry/7snzkugx/" target="_blank">this JS Fiddle</a> for this with support for strings and style properties.</p>
+					<p class="fragment">See <a href="https://jsfiddle.net/KeithHenry/7snzkugx/" target="_blank">this JS Fiddle</a> for this with support for strings and style properties too.</p>
 				</section>
 				<section id="domCreationBetterSample" style="text-align: left;" data-background="#009688">
 					<h3>Better DOM Example</h3>
@@ -319,7 +342,7 @@ React.createElement("div", {style: {backgroundColor: "#f00"}}, "content");</code
 					<p>React is a far more complete implementation of this idea.</p>
 					<p class="fragment">DOM as data can be compared and only differences applied.</p>
 					<p class="fragment">This abstraction is called the <i>virtual DOM</i>.</p>
-					<p class="fragment">See also <a href="https://github.com/developit/preact" target="_blank">Preact</a> for a less featured but more lightweight alternative.</p>
+					<p class="fragment">See also <a href="https://github.com/developit/preact" target="_blank">Preact</a> for more lightweight alternative with fewer features.</p>
 				</section>
 			</section>
 
@@ -353,6 +376,13 @@ element.addEventListener('event', function handler(event) {
     // Remove the event listener
     event.currentTarget.removeEventListener(event.type, handler);
 });</code></pre>
+				</section>
+				<section id="eventGC" style="text-align: left;">
+					<h3>Garbage Collection &amp; Events</h3>
+					<p>GC in JS varies by engine, but it involves looking through objects in memory and discarding anything that isn't referenced anymore.</p>
+					<p class="fragment">This can be a problem with events, as they can 'hold on' to variables and DOM objects.</p>
+					<p class="fragment">jQuery automatically tidies up events when you remove a DOM element.</p>
+					<p class="fragment">Without it, you have to be careful to call <code class="javascript inline">element.removeEventListener('event', handler)</code> yourself.</p>
 				</section>
 				<section id="eventDom" style="text-align: left;">
 					<h3>DOM &amp; then Events</h3>
@@ -389,7 +419,7 @@ button.addEventListener('click', function() {
 					<pre class="fragment"><code class="javascript">// Create virtual DOM
 var outer = 
 	span('content', 
-		createElement('button', {click: function() {
+		button({click: function() {
 			alert('Please do not push this button again!');
 		}}, 'Click Me!'));</code></pre>
 					<p class="fragment">Nice. What about JSX/React?</p>
@@ -400,6 +430,12 @@ var outer =
             alert('Please do not push this button again!');
         }}&gt;Click Me!&lt;/button&gt;
     &lt;/span&gt;;</pre>
+				</section>
+				<section id="eventConclusion" style="text-align: left;">
+					<h3>jQuery Events</h3>
+					<p class="fragment">jQuery events are tidy and good for GC.</p>
+					<p class="fragment">But they do not support recent features.</p>
+					<p class="fragment">They add the most value to disconnected HTML and events.</p>
 				</section>
 			</section>
 
@@ -415,6 +451,11 @@ var outer =
 					<p class="fragment">Available to workers.</p>
 					<p class="fragment">Native promise support.</p>
 					<p class="fragment">Supported by everyone except IE - it's easier to shim <code class="javascript inline">fetch</code> for IE users than it is to make everyone use a wrapper API.</p>
+				</section>
+				<section id="httpConclusion" style="text-align: left;">
+					<h3>jQuery AJAX</h3>
+					<p class="fragment">jQuery AJAX is OK.</p>
+					<p class="fragment">But there is a better option out there for modern browsers.</p>
 				</section>
 			</section>
 
@@ -450,7 +491,13 @@ function $(selector, context) {
 					<p class="fragment">No support for <code class="html inline">&lt;script defer ...&gt;</code></p>
 					<p class="fragment">Every jQuery component relies on ready, so...</p>
 					<p class="fragment">Everything waits for all the JS to download before becoming interactive.</p>
-					<p class="fragment">This is fine for corporate apps where people will wait, but is a problem for mobile.</p>
+					<p class="fragment">This is fine for corporate apps where people will wait, but is a <a href="#mobileOptimisation">problem for mobile</a>.</p>
+				</section>
+				<section id="readyBetter" style="text-align: left;">
+					<h3>What could be done better?</h3>
+					<p class="fragment">Components and pages have a lifecycle</p>
+					<p class="fragment">Interactivity should be progressive, not all on ready.</p>
+					<p class="fragment">It should be possible to defer or asynchronously load components.</p>
 				</section>
 			</section>
 
@@ -486,12 +533,46 @@ function $(selector, context) {
 					<p class="fragment">Only use GPU accelerated animations (no <code class="javascript inline">.slideUp()</code>/<code class="javascript inline">.slideDown()</code>, amoungst many others)</p>
 					<p class="fragment">Only load the script you'll need.</p>
 				</section>
-
 				<section id="jQueryMobile" style="text-align: left;">
 					<h3>jQuery Mobile</h3>
 					<p class="fragment">jQuery does have a <a href="https://jquerymobile.com/" target="_blank">mobile touch-optimised version</a>.</p>
 					<p class="fragment">It's 196KB (un-compressed) on top of jQuery (another 86KB).</p>
 					<p class="fragment">That's all I have to say about that.</p>
+				</section>
+			</section>
+
+			<section>
+				<section id="paradigmShift">
+					<h2>Paradigm Shift</h2>
+					<p>The biggest issue with jQuery is that it's so well optimised for a previous paradigm.</p>
+				</section>
+				<section id="paradigmOverTime" style="text-align: left;">
+					<p class="fragment">2005: server builds HTML with inlined JS events.<br>
+Mobile was an afterthought.</p>
+					<p class="fragment">2010: static HTML with events subscribed to in separate client side code.<br>
+jQuery is well suited for this pattern.<br>
+Mobile was all about native app development.</p>
+					<p class="fragment">2017: REST services with either client side rendering or rehydration, maybe web components, all of which build the DOM and hook up events as they go.   <br>
+Best practice with most projects is now mobile-first.</p>
+				</section>
+				<section id="paradigmClientRender" style="text-align: left;">
+					<h3>Client-side Render</h3>
+					<p class="fragment">If you render HTML in JS then you optimise building components.</p>
+					<p class="fragment">Frameworks that parse pre-built HTML add a lot less value.</p>
+				</section>
+				<section id="paradigmHttp2" style="text-align: left;">
+					<h3><a href="https://http2.github.io/" target="_blank">HTTP/2</a></h3>
+					<p class="fragment">HTTP/2 makes it much quicker for browsers to download multiple files at once.</p>
+					<p class="fragment">This has the potential to further change the paradigm...</p>
+				</section>
+				<section id="paradigmPredictions" style="text-align: left;">
+					<h3>The Next Paradigm</h3>
+					(Entirely my opinions.)
+					<p class="fragment">Single page app loads with tiny, heavily optimised, core library.</p>
+					<p class="fragment">Shims loaded as needed - Chrome users will get none, while IE users will have to wait longer.</p>
+					<p class="fragment">Resources and shims will be small files loaded in parallel over HTTP/2.</p>
+					<p class="fragment">Preload and HTTP/2 push will send down resources before they are requested.</p>
+					<p class="fragment">Service workers will cache resources and provide offline functionality.</p>
 				</section>
 			</section>
 
