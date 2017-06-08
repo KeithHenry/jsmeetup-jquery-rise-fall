@@ -293,7 +293,7 @@ var newSpan = span('content');</code></pre>
 					<p>We also need to be able to set attributes and add children.</p>
 					<pre class="fragment"><code class="javascript">// Add attributes
 function createElement(tag, content, children) {
-	// Add attributes in the element with setAttribute
+	// ... create ele then add attributes with setAttribute
 	for (var attr in ele)
 		if (content[attr]) {
 			ele.setAttribute(attr, content[attr]);
@@ -332,7 +332,7 @@ var divElement =
 					<pre class="fragment hljs no-highlight">// JSX is HTML-like in JS
 &lt;div style={{backgroundColor: '#f00'}}&gt;content&lt;/div&gt;;</pre>
 					<pre class="fragment"><code class="javascript">// Pre-compiles to factory method calls
-React.createElement("div", {style: {backgroundColor: "#f00"}}, "content");</code></pre>
+React.createElement('div', {style: {backgroundColor: '#f00'}}, 'content');</code></pre>
 					<p class="fragment">React?</p>
 				</section>
 				<section id="domCreationReact" style="text-align: left;" data-background="#009688">
@@ -553,8 +553,8 @@ function $(selector, context) {
 				<section id="jQueryMobile" style="text-align: left;">
 					<h3>jQuery Mobile</h3>
 					<p class="fragment">jQuery does have a <a href="https://jquerymobile.com/" target="_blank">mobile touch-optimised version</a>.</p>
-					<p class="fragment">It's 196KB (un-compressed) on top of jQuery (another 86KB).</p>
-					<p class="fragment">That's all I have to say about that.</p>
+					<p class="fragment">It's 196KB (un-compressed) on top of jQuery (another 86KB) and has to finish loading before anything will work.</p>
+					<p class="fragment">I refer you back to the <a href="#mobileGoldenRule">golden rule</a>.</p>
 				</section>
 				<section id="mobileSummary">
 					<p>While jQuery has always claimed to be <i>lightweight</i>, in the mobile context it really <i>really</i> isn't.</p>
@@ -603,7 +603,7 @@ Best practice with most projects is now mobile-first.</p>
 				</section>
 				<section id="simpleReplacement" style="text-align: left;">
 					<h3>Our simple jQuery</h3>
-					<p><a href="https://github.com/KeithHenry/jsmeetup-jquery-rise-fall/blob/master/samples/noddy-jquery.js" target="_blank"><span class="fa fa-fw fa-github"></span> Source</a>.</p>
+					<p><a href="https://github.com/KeithHenry/jsmeetup-jquery-rise-fall/blob/master/samples/noddy-jquery.js" target="_blank"><span class="fa fa-fw fa-github"></span> Source</a> (&lt;1KB).</p>
 					<p><a href="https://jsfiddle.net/KeithHenry/stw0twg3/" target="_blank"><span class="fa fa-fw fa-jsfiddle"></span> JS Fiddle Demo</a>.</p>
 					<p class="fragment">Others have done it better...</p>
 				</section>
@@ -611,7 +611,7 @@ Best practice with most projects is now mobile-first.</p>
 					<h3>jQuery Drop-in Replacements</h3>
 					<p>jQuery is 86KB</p>
 					<p class="fragment"><a href="http://zeptojs.com/" target="_blank">Zepto</a> 26KB.</p>
-					<p class="fragment"><a href="https://github.com/kiltjs/jqlite" target="_blank">jqlite</a> 20KB, used by Angular 1</p>
+					<p class="fragment"><a href="https://github.com/kiltjs/jqlite" target="_blank">jqlite</a> 20KB, used by Angular JS</p>
 					<p class="fragment">(Angular 2/4 has dropped it)</p>
 				</section>
 				<section id="alternatives" style="text-align: left;">
