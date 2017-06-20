@@ -600,7 +600,7 @@ Best practice with most projects is now mobile-first.</p>
 			<section>
 				<section id="bpIntro" data-background="#009688">
 					<h2>Aside: Coding 'Best Practice'</h2>
-					<p class="fragment">Weirdly, this meta has come full circle as data has moved from server to client.</p>
+					<p class="fragment">Weirdly, this meta has come full circle as rendering has moved from server to client.</p>
 				</section>
 				<section id="bp2006" style="text-align: left;" data-background="#009688">
 					<h3>2005</h3>
@@ -635,7 +635,7 @@ $(function(){
 	var $clickableButton = $('#clickableButton').click(function(e){
 		// This will be a DOM element, we need $this to get the data-attr
 		var $this = $(this);
-		alert(this.data('message'));
+		alert($this.data('message'));
 	});
 });
 </code></pre>
@@ -650,10 +650,7 @@ const element = (
         className="btn"&gt;
         Click Me!
     &lt;/button&gt;
-&lt;/div&gt;);
-
-ReactDOM.render(element, root);
-</pre>
+&lt;/div&gt;);</pre>
 				</section>
 				<section id="bp2017ng" style="text-align: left;" data-background="#009688">
 					<h3>2017: Angular</h3>
@@ -678,7 +675,7 @@ export class MyComponent {
 	'my-component', 
 	{
 		template: `
-<div id="my-component">
+<div>
 	{{dynamicContent}}
 	<button v-on:click="alertMessage" 
 		class="btn">
@@ -714,11 +711,12 @@ export class MyComponent {
 				</section>
 				<section id="bp2017patterns" style="text-align: left;" data-background="#009688">
 					<h3>2017</h3>
-<p>Many frameworks now...</p>
-<p class="fragment">Use an ES6 class as the component.</p>
-<p class="fragment">Include HTML templates.</p>
-<p class="fragment">Have <code class="javascript inline">{{model-binding}}</code> of some kind.</p>
-<p class="fragment">Work both on server and in browser.</p>
+					<p>Many frameworks now...</p>
+					<p class="fragment">Use an ES6 class as the component.</p>
+					<p class="fragment">Include HTML templates or use the new <code class="html inline">&lt;template&gt;</code> tag.</p>
+					<p class="fragment">Build components that can be included in HTML: <code class="html inline">&lt;my-component&gt;&lt;/my-component&gt;</code>.</p>
+					<p class="fragment">Have <code class="javascript inline">{{model-binding}}</code> of some kind.</p>
+					<p class="fragment">Work both on server and in browser.</p>
 				</section>
 			</section>
 
