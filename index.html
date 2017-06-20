@@ -19,8 +19,8 @@
 					<div style="text-transform: none; margin-top:1em; font-size: .5em;">JavaScript North West Meetup</div>
 				</h1>
 			</section>
-			<section id="title">
-				<h1>The Rise &amp; Fall of jQuery</h1>
+			<section id="title" data-background="#131B28">
+				<img title="The Rise &amp; Fall of jQuery" src="https://www.evolutionjobs.com/uploads/jq-new-banner.jpg" border=0 class="plain">
 				<div>
 					<div style="margin:1em 0;">
 						<img src="img/kxh_sq.jpg" border="0" style="border: none; border-radius: 50%; width: 2em; height: 2em; vertical-align: middle; margin: 0 .5em 0 0;">
@@ -62,7 +62,7 @@
 			<section id="trends" data-background="#ffffff">
 				<h2 style="color: #000000">Trends</h2>
 				<a href="https://insights.stackoverflow.com/trends?tags=jquery%2Cangular%2Cangularjs%2Creactjs" target="_blank">
-				<img src="img/javascript-large-1-1320x800.png" border="0"></a>
+				<img src="img/javascript-large-1-1320x800.png" border="0" class="plain"></a>
 			</section>
 
 			<section>
@@ -646,6 +646,131 @@ Best practice with most projects is now mobile-first.</p>
 					<p class="fragment">You should be as comfortable coding vanilla JS with no libraries loaded at all as you are with jQuery.</p>
 				</section>
 			</section>		
+
+			<section>
+				<section id="bpIntro" data-background="#009688">
+					<h2>Aside: Coding 'Best Practice'</h2>
+					<p class="fragment">Weirdly, this meta has come full circle as data has moved from server to client.</p>
+				</section>
+				<section id="bp2006" style="text-align: left;" data-background="#009688">
+					<h3>2005</h3>
+<pre><code class="asp"><%-- Typical asp/aspx page --%>
+<div>
+	<%=dynamicContent%>
+	<button click="javascript:alert(<%=message%>)" 
+		 class="btn">
+		 Click Me!
+	</button>
+</div></code></pre>
+<p class="fragment">Mix of server and client code.</p>
+<p class="fragment">Hard to support complex actions.</p>
+<p class="fragment">Hard to change DOM.</p>
+<p class="fragment">Messy to package into components.</p>
+				</section>
+				<section id="bp2010" style="text-align: left;" data-background="#009688">
+					<h3>2010: jQuery to the rescue!</h3>
+<pre><code class="razor">@* Typical dynamic razor page, but could be anything *@
+<div>
+	@dynamicContent
+	<button id="clickableButton" 
+		 class="btn"
+		 data-message="@message">
+		 Click Me!
+	</button>
+</div>
+<script type="text/javascript" src="hook-up-page.js"></script></code></pre>
+<pre class="fragment"><code class="javascript">// Static hook-up-page.js
+$(function(){
+	// Once the has loaded set up the click event
+	var $clickableButton = $('#clickableButton').click(function(e){
+		// This will be a DOM element, we need $this to get the data-attr
+		var $this = $(this);
+		alert(this.data('message'));
+	});
+});
+</code></pre>
+				</section>
+				<section id="bp2017jsx" style="text-align: left;" data-background="#009688">
+					<h3>2017: JSX/React</h3>
+					<pre class="hljs no-highlight">// JSX inlines the functionality
+const element = (
+&lt;div&gt;
+    {dynamicContent}
+    &lt;button onClick={function() { alert(message); }} 
+        className="btn"&gt;
+        Click Me!
+    &lt;/button&gt;
+&lt;/div&gt;);
+
+ReactDOM.render(element, root);
+</pre>
+				</section>
+				<section id="bp2017ng" style="text-align: left;" data-background="#009688">
+					<h3>2017: Angular</h3>
+<pre><code class="javascript">@Component({
+    selector: 'my-component',
+    template: `
+<div>
+	{{dynamicContent}}
+	<button (click)="alertMessage()" 
+		class="btn">
+		Click Me!
+	</button>
+</div>`})
+export class MyComponent {
+    get dynamicContent() { ... }
+    alertMessage() { alert(this.message); }
+}</code></pre>
+				</section>
+				<section id="bp2017vue" style="text-align: left;" data-background="#009688">
+					<h3>2017: Vue JS</h3>
+<pre><code class="javascript">Vue.component(
+	'my-component', 
+	{
+		template: `
+<div id="my-component">
+	{{dynamicContent}}
+	<button v-on:click="alertMessage" 
+		class="btn">
+		Click Me!
+	</button>
+</div>`,
+		props: ['message', 'dynamicContent'],
+		methods: {
+			alertMessage: function () { alert(this.message); }
+		}
+	});</code></pre>
+				</section>
+				<section id="bp2017polymer" style="text-align: left;" data-background="#009688">
+					<h3>2017: Polymer</h3>
+<pre><code class="html"><dom-module id="my-component">
+    <template>
+		{{dynamicContent}}
+		<button on-tap="alertMessage" 
+			class="btn">
+			Click Me!
+		</button>
+	</template>
+	<script>
+        class MyComponent extends Polymer.Element {
+            static get is() { return 'my-component'; }
+			get dynamicContent() { ... }
+			alertMessage() { alert(this.message); }
+		}
+		customElements.define(MyComponent.is, MyComponent);
+	</script>
+</dom-module>
+</code></pre>
+				</section>
+				<section id="bp2017patterns" style="text-align: left;" data-background="#009688">
+					<h3>2017</h3>
+<p>Many frameworks now...</p>
+<p class="fragment">Use an ES6 class as the component.</p>
+<p class="fragment">Include HTML templates.</p>
+<p class="fragment">Have <code class="javascript inline">{{model-binding}}</code> of some kind.</p>
+<p class="fragment">Work both on server and in browser.</p>
+				</section>
+			</section>
 
 			<section>
 				<section>
