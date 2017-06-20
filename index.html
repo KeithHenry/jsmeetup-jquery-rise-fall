@@ -148,7 +148,7 @@
 						<code class="javascript inline">ActiveXObject('Microsoft.XMLHTTP')</code> vs
 						<code class="javascript inline">new ActiveXObject('MSXML2.XMLHTTP')</code> vs
 						<code class="javascript inline">XMLHttpRequest</code></p>
-					<p class="fragment"><code class="javascript inline">$.ajax</code> added a consistent method with type handling.</p>
+					<p class="fragment"><code class="javascript inline">$.ajax</code> added a consistent method with request-type handling.</p>
 				</section>
 				<section id="riseReady" style="text-align: left;">
 					<h3>Ready Event</h3>
@@ -350,10 +350,10 @@ React.createElement('div', {style: {backgroundColor: '#f00'}}, 'content');</code
 				
 				<section id="domCreationWC" style="text-align: left;" data-background="#009688">
 					<h3>Web Components</h3>
-					<p class="fragment"><a href="https://vuejs.org/" target="_blank">Vue.js</a> uses a similar model, but use the 
+					<p class="fragment"><a href="https://vuejs.org/" target="_blank">Vue.js</a> uses a similar model, but uses the 
 					<a href="https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Slots-Proposal.md" target="_blank">slots API</a>.</p>
 					<p class="fragment">Web Components build DOM with <code class="javascript inline">&lt;template&gt;</code> and Shadow DOM.</p>
-					<p class="fragment">(too much to cover here)</p>
+					<p class="fragment">(more on these later...)</p>
 				</section>
 				
 				<section id="domSummary" style="text-align: left;">
@@ -512,6 +512,7 @@ function $(selector, context) {
 				</section>
 				<section id="readyBetter" style="text-align: left;">
 					<h3>What could be done better?</h3>
+					<p class="fragment">jQuery simplifies something that just isn't simple.</p>
 					<p class="fragment">Components and pages have a lifecycle</p>
 					<p class="fragment">Interactivity should be progressive, not all on ready.</p>
 					<p class="fragment">It should be possible to defer or asynchronously load components.</p>
@@ -547,7 +548,7 @@ function $(selector, context) {
 					<h3>Other rules for mobile optimisation</h3>
 					<p class="fragment">Execute all scripts asynchronously (jQuery's <a href="#readyProblems">ready event blocks this</a>).</p>
 					<p class="fragment">Don't block rendering waiting for resources to load or JS to run (broken by many jQuery components).</p>
-					<p class="fragment">Only use GPU accelerated animations (no <code class="javascript inline">.slideUp()</code>/<code class="javascript inline">.slideDown()</code>, amoungst many others)</p>
+					<p class="fragment">Only use GPU accelerated animations (no <code class="javascript inline">.slideUp()</code>/<code class="javascript inline">.slideDown()</code>, amongst many others)</p>
 					<p class="fragment">Only load the script you'll need.</p>
 				</section>
 				<section id="jQueryMobile" style="text-align: left;">
@@ -595,57 +596,6 @@ Best practice with most projects is now mobile-first.</p>
 					<p class="fragment">Service workers will cache resources and provide offline functionality.</p>
 				</section>
 			</section>
-
-			<section>
-				<section id="replacement">
-					<h2>Replacing jQuery</h2>
-					<p>There are alternatives</p>
-				</section>
-				<section id="simpleReplacement" style="text-align: left;">
-					<h3>Our simple jQuery</h3>
-					<p><a href="https://github.com/KeithHenry/jsmeetup-jquery-rise-fall/blob/master/samples/noddy-jquery.js" target="_blank"><span class="fa fa-fw fa-github"></span> Source</a> (&lt;1KB).</p>
-					<p><a href="https://jsfiddle.net/KeithHenry/stw0twg3/" target="_blank"><span class="fa fa-fw fa-jsfiddle"></span> JS Fiddle Demo</a>.</p>
-					<p class="fragment">Others have done it better...</p>
-				</section>
-				<section id="dropinReplacement" style="text-align: left;">
-					<h3>jQuery Drop-in Replacements</h3>
-					<p>jQuery is 86KB</p>
-					<p class="fragment"><a href="http://zeptojs.com/" target="_blank">Zepto</a> 26KB.</p>
-					<p class="fragment"><a href="https://github.com/kiltjs/jqlite" target="_blank">jqlite</a> 20KB, used by Angular JS</p>
-					<p class="fragment">(Angular 2/4 has dropped it)</p>
-				</section>
-				<section id="alternatives" style="text-align: left;">
-					<h3>Alternatives</h3>
-					<p>There's lots of help online to wean off jQuery...</p>
-					<p class="fragment"><a href="http://youmightnotneedjquery.com/" target="_blank">You Might Not Need jQuery</a></p>
-					<p class="fragment"><a href="https://blog.garstasio.com/you-dont-need-jquery/" target="_blank">You Don't Need jQuery!</a></p>
-					<p class="fragment"><a href="https://www.sitepoint.com/do-you-really-need-jquery/" target="_blank">Do You Really Need jQuery?</a></p>
-					<p class="fragment">Loads more!</p>
-				</section>
-			</section>
-
-			<section>
-				<section id="recruitmentIntro">
-					<h2>Recruitment &amp; Skills</h2>
-					<p>There are a lot of JS developers who reach for jQuery for <i>every</i> project.</p>
-					<p class="fragment">That can be both a good and a bad thing.</p>
-				</section>
-				<section id="recruitment" style="text-align: left;">
-					<h3>Team Management</h3>
-					<p>jQuery is ubiqutous, mature, and easy to learn.</p>
-					<p class="fragment">For all of the exciting new frameworks listed above one of the top Stack Overflow questions is...</p>
-					<blockquote class="fragment">How do I use {framework} with jQuery?</blockquote>
-					<p class="fragment">jQuery developers are cheaper and easier to source than, say, React or Angular specialists.</p>
-					<p class="fragment">If you need to build a large team and you're dealing with corporate or internal customers then jQuery is a pragmatic choice.</p>
-				</section>
-				<section id="skills" style="text-align: left;">
-					<h3>Skills</h3>
-					<p>jQuery is generic, old, and easy to learn.</p>
-					<p class="fragment">If you're coding with jQuery try using it less. Plain JS is perfectly compatible.</p>
-					<p class="fragment">jQuery should be just one of a set of JS skills that you have.</p>
-					<p class="fragment">You should be as comfortable coding vanilla JS with no libraries loaded at all as you are with jQuery.</p>
-				</section>
-			</section>		
 
 			<section>
 				<section id="bpIntro" data-background="#009688">
@@ -769,6 +719,57 @@ export class MyComponent {
 <p class="fragment">Include HTML templates.</p>
 <p class="fragment">Have <code class="javascript inline">{{model-binding}}</code> of some kind.</p>
 <p class="fragment">Work both on server and in browser.</p>
+				</section>
+			</section>
+
+			<section>
+				<section id="replacement">
+					<h2>Replacing jQuery</h2>
+					<p>There are alternatives</p>
+				</section>
+				<section id="simpleReplacement" style="text-align: left;">
+					<h3>Our simple jQuery</h3>
+					<p><a href="https://github.com/KeithHenry/jsmeetup-jquery-rise-fall/blob/master/samples/noddy-jquery.js" target="_blank"><span class="fa fa-fw fa-github"></span> Source</a> (&lt;1KB).</p>
+					<p><a href="https://jsfiddle.net/KeithHenry/stw0twg3/" target="_blank"><span class="fa fa-fw fa-jsfiddle"></span> JS Fiddle Demo</a>.</p>
+					<p class="fragment">Others have done it better...</p>
+				</section>
+				<section id="dropinReplacement" style="text-align: left;">
+					<h3>jQuery Drop-in Replacements</h3>
+					<p>jQuery is 86KB</p>
+					<p class="fragment"><a href="http://zeptojs.com/" target="_blank">Zepto</a> 26KB.</p>
+					<p class="fragment"><a href="https://github.com/kiltjs/jqlite" target="_blank">jqlite</a> 20KB, used by Angular JS</p>
+					<p class="fragment">(Angular 2/4 has dropped it)</p>
+				</section>
+				<section id="alternatives" style="text-align: left;">
+					<h3>Alternatives</h3>
+					<p>There's lots of help online to wean off jQuery...</p>
+					<p class="fragment"><a href="http://youmightnotneedjquery.com/" target="_blank">You Might Not Need jQuery</a></p>
+					<p class="fragment"><a href="https://blog.garstasio.com/you-dont-need-jquery/" target="_blank">You Don't Need jQuery!</a></p>
+					<p class="fragment"><a href="https://www.sitepoint.com/do-you-really-need-jquery/" target="_blank">Do You Really Need jQuery?</a></p>
+					<p class="fragment">Loads more!</p>
+				</section>
+			</section>
+
+			<section>
+				<section id="recruitmentIntro">
+					<h2>Recruitment &amp; Skills</h2>
+					<p>There are a lot of JS developers who reach for jQuery for <i>every</i> project.</p>
+					<p class="fragment">That can be both a good and a bad thing.</p>
+				</section>
+				<section id="recruitment" style="text-align: left;">
+					<h3>Team Management</h3>
+					<p>jQuery is ubiqutous, mature, and easy to learn.</p>
+					<p class="fragment">For all of the exciting new frameworks listed above one of the top Stack Overflow questions is...</p>
+					<blockquote class="fragment">How do I use {framework} with jQuery?</blockquote>
+					<p class="fragment">jQuery developers are cheaper and easier to source than, say, React or Angular specialists.</p>
+					<p class="fragment">If you need to build a large team and you're dealing with corporate or internal customers then jQuery is a pragmatic choice.</p>
+				</section>
+				<section id="skills" style="text-align: left;">
+					<h3>Skills</h3>
+					<p>jQuery is generic, old, and easy to learn.</p>
+					<p class="fragment">If you're coding with jQuery try using it less. Plain JS is perfectly compatible.</p>
+					<p class="fragment">jQuery should be just one of a set of JS skills that you have.</p>
+					<p class="fragment">You should be as comfortable coding vanilla JS with no libraries loaded at all as you are with jQuery.</p>
 				</section>
 			</section>
 
